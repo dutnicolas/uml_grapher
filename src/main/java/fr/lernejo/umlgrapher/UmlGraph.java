@@ -2,34 +2,23 @@ package fr.lernejo.umlgrapher;
 
 public class UmlGraph {
 
-    private final Class<?> entity;
+    private final Class<?>[] entities;
 
-    public UmlGraph(Class<?> entity) {
-        this.entity = entity;
+    public UmlGraph(Class<?>[] entities) {
+        this.entities = entities;
     }
 
     public String as(GraphType type) {
-
-        String output = "type";
+        String output = "";
 
         if(type.name().equals("Mermaid")){
-
             output = """
             classDiagram
             class Machin {
                 <<interface>>
             }
             """;
-
-            //  PAS FINI
-            /*output =
-                "classDiagram\n" +
-                "class " + entity.getSimpleName() + " {\n" +
-                "\t" + entity.getTypeName() + "\n" +
-                "}";
-             */
         }
-
         return output;
     }
 
