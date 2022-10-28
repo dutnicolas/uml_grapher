@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class UmlGraphTests {
     @Test
     void empty_interface_with_no_relation() {
-        Class<?>[] temp = new Class<?>[Machin.class.getModifiers()];
+        Class<?>[] temp = new Class<?>[]{Machin.class};
         UmlGraph graph = new UmlGraph(temp);
 
         String output = graph.as(GraphType.Mermaid);

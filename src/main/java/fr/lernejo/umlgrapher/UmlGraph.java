@@ -9,16 +9,18 @@ public class UmlGraph {
     }
 
     public String as(GraphType type) {
-        String output = "";
+        String output = "classDiagram\n";
 
-        if(type.name().equals("Mermaid")){
-            output = """
-            classDiagram
-            class Machin {
-                <<interface>>
+        for(Class<?> entity : entities){
+            if(type == GraphType.Mermaid){
+                output += "class " + entity.getSimpleName() + " {\n";
+                if(entity.isInterface()){
+                    output += "    <<interface>>\n";
+                }
             }
-            """;
+            output += "}\n";
         }
+
         return output;
     }
 
